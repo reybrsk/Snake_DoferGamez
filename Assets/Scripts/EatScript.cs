@@ -76,6 +76,7 @@ public class EatScript : MonoBehaviour
     {
         
         levelEvents.restartPanel.SetActive(true);
+        Time.timeScale = 0.1f;
     }
 
     private void Eat(GameObject eatObject)

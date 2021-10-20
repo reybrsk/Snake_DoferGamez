@@ -15,10 +15,12 @@ public class SnakeConstruct : MonoBehaviour
     private bool isFevered = false;
 
 
-    private IEnumerator _coroutine;
+    // private IEnumerator _coroutine;
     
     private void Start()
     {
+        Time.timeScale = 1f;
+        
         
         _bodyMeshes.Add(this.gameObject);
         gameObject.GetComponent<Renderer>().material = material;
