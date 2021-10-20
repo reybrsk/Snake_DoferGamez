@@ -12,7 +12,8 @@ public class SnakeConstruct : MonoBehaviour
     private List<GameObject> _bodyMeshes = new List<GameObject>();
     public Material material;
     public bool isFever = false;
-    private bool isFevered = false;
+    private bool _isFevered = false;
+    [SerializeField] private int feverTime = 3;
 
 
     // private IEnumerator _coroutine;
@@ -38,10 +39,10 @@ public class SnakeConstruct : MonoBehaviour
 
     private void Update()
     {
-        if (isFever && !isFevered)
+        if (isFever && !_isFevered)
         {
-            StartCoroutine(FeverTimer(3f));
-             isFevered = true;
+            StartCoroutine(FeverTimer(feverTime));
+             _isFevered = true;
         }
     }
    
@@ -52,7 +53,7 @@ public class SnakeConstruct : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
             print("WaitAndPrint " + Time.time);
             isFever = false;
-            isFevered = false;
+            _isFevered = false;
         }
     }
 }

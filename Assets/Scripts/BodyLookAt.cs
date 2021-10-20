@@ -19,11 +19,14 @@ public class BodyLookAt : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (parrent == null) return;
+        if (parrent != null)
+        {
+            _duration = FindObjectOfType<SnakeConstruct>().duration;
+            transform.LookAt(parrent);
+            transform.DOMove(parrent.position - parrent.forward * _distance,_duration);
+        }
         
-        _duration = FindObjectOfType<SnakeConstruct>().duration;
-        transform.LookAt(parrent);
-        transform.DOMove(parrent.position - parrent.forward * _distance,_duration);
+        
     }
     
     

@@ -24,7 +24,7 @@ public class EatScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_feverCount == 3)
+        if (_feverCount > 3)
         {
             _snakeConstruct.isFever = true;
             _feverCount = 0;
